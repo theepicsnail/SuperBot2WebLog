@@ -1,0 +1,19 @@
+<!DOCTYPE HTML> 
+<html> 
+  <head> 
+    <title>SB2 logs viewer</title> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script> 
+    <script type="text/javascript">
+        var log_server = 'udderweb.com:10240'
+        $.getJSON('http://' + log_server + '/?callback=?',
+        function(data) {
+            $.each(data, function(i,item){
+                $('<li>' + item.msg + '</li>').prependTo("#log");
+            });
+        }); 
+    </script> 
+  </head> 
+  <body>
+    <ul id="log"></ul>
+  </body>
+</html>
